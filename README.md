@@ -9,7 +9,7 @@ Run the development server < python manage.py runserver >
 
 Open your browser to "http://127.0.0.1:8000/"
 
-When making changes test your changes and raise pull request in main repo.Make sure to comment your code in the appropriate way
+When making changes test your changes and raise pull request.Make sure to comment your code in the appropriate way
 
  
 
