@@ -1,0 +1,129 @@
+{% extends "Dashboard/base.html" %}
+
+{% block content %}
+<h2>Assets</h2>
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th>Account</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for asset in assets %}
+      <tr>
+        <td>{{ asset.account }}</td>
+        <td>Kshs {{ asset.amount }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<h2>Liabilities</h2>
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th>Account</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for liability in liabilities %}
+      <tr>
+        <td>{{ liability.account }}</td>
+        <td>Kshs {{ liability.amount }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+</div>
+<h2>Equity</h2>
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th>Account</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for equity_item in equity %}
+      <tr>
+        <td>{{ equity_item.account }}</td>
+        <td>Kshs {{ equity_item.amount }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<h2>Revenue</h2>
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th>Account</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for revenue_item in revenue %}
+      <tr>
+        <td>{{ revenue_item.account }}</td>
+        <td>Kshs {{ revenue_item.amount }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+</div>
+<h2>Expenses</h2>
+<div class="row">
+  <table>
+    <thead>
+      <tr>
+        <th>Account</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for expense in expenses %}
+      <tr>
+        <td> {{ expense.account }}</td>
+        <td>Kshs {{ expense.amount }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<h2>Summary</h2>
+<div class="row">
+  <table>
+    <tr>
+      <th scope="col">Total Assets</th>
+      <th scope="col">Total Liabilities</th>
+      <th scope="col">Total Equity</th>
+      <th scope="col">Total Revenue</th>
+      <th scope="col">Total Expenses</th>
+      <th scope="col">Net Income</th>
+    </tr>
+    <tr>
+      <td>Kshs {{ total_assets }}</td>
+      <td>Kshs {{ total_liabilities }}</td>
+      <td>Kshs {{ total_equity }}</td>
+      <td>Kshs {{ total_revenue }}</td>
+      <td>Kshs {{ total_expenses }}</td>
+      <td>Kshs {{ net_income }}</td>
+    </tr>
+    <tr>
+      <th colspan="2">Total Liabilities & Equity</th>
+      <td colspan="4">Kshs {{ total_liabilities_equity }}</td>
+    </tr>
+  </table>
+</div>
+{% endblock content %}

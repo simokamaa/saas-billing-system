@@ -1,0 +1,67 @@
+{% extends "Dashboard/base.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+
+<div class="container-xl">
+  <div class="table-responsive">
+      <div class="table-wrapper">
+          <div class="table-title">
+              <div class="row">
+                  <div class="col-sm-8"><h2><b>Employees</b> <b>Details</b></h2></div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <form method="POST" action="{% url 'deleteAllEmployees' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+               <button type="submit" class="btn btn-danger"><b>Delete all</b></button>
+            </form>
+            </div>
+            <div class="col" style="display:flex;">
+               <button type="submit" class="btn btn-primary"><a href="{% url 'addEmployee' %}" style="color:white;"><b>Add new</b></a> </button>
+            </div>
+          </div>
+          <table class="table  table-bordered">
+              <thead>
+                  <tr>
+                      <th>#</th>
+                      <th scope="col">Username</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Phone Number</th>
+                      <th scope="col">kra pin</th>
+                      <th scope="col">image</th>
+                      <th scope="col">frontid</th>
+                      <th scope="col">backid</th>
+                      <th scope="col"> action</th>
+
+                  </tr>
+              </thead>
+              <tbody>
+                {% for employee in employees  %}
+                <tr>
+                  <th scope="row">{{ employee.Employement_id }}</th>
+                  <td>{{ employee.username }}</td>
+                  <td>{{ employee.Email }}</td>
+                  <td>{{ employee.phone_number }}</td>
+                  <td>{{ employee.kra_pin }}</td>
+                   {% if employee.image %}
+                  <td><img style="max-width:100px; max-height:100px;" src= "{{ employee.image.url }}" alt="image"  /></td>
+                  {% endif %}
+                  <td><img style="max-width:100px; max-height:100px;" src="{{ employee.front_id_image.url }}"/></td>
+                  <td><img style="max-width:100px; max-height:100px;"  src="{{ employee.back_id_image.url }}"/></td>
+                  <td>
+
+                        <a href="{% url 'employee_detail' employee.pk %}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i>View</a>
+                        <a href="{% url 'employee_update' employee.pk %}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i>Edit</a>
+                        <a href="{% url 'employee_delete' employee.pk %}" class="delete" title="Delete" ><i class="material-icons">&#xE517;</i>Delete</a>
+                 </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+
+{% endblock content %}

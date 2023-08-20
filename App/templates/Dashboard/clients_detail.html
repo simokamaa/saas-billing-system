@@ -1,0 +1,60 @@
+{% extends "Dashboard/base.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="container-xl">
+  <div class="table-responsive">
+      <div class="table-wrapper">
+          <div class="table-title">
+              <div class="row">
+                  <div class="col-sm-8"><h2><b>Clients</b> <b>Details</b></h2></div>
+              </div>
+          </div>
+          <div class="row">
+            <!--Delete all button-->
+            <div class="col m-1">
+
+                <button type="submit" class="btn btn-danger"><a style="color:white;" href="{% url 'clients_delete' %}">Delete all</a></button>
+
+            </div>
+            <!--Add new Product-->
+            <div class="col m-1">
+               <a href="{% url 'client_create' %}"> <button type="submit" class="btn btn-primary">Add client</button></a>
+            </div>
+          </div>
+          <table class="table table-striped table-hover table-bordered">
+              <thead>
+                  <tr>
+                      <th scope="col">First Name</th>
+                      <th scope="col">Last Name</th>
+                      <th scope="col">Products</th>
+                      <th scope="col"> Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                {% for client in  company_clients  %}
+                <tr>
+                  <th>{{ client.first_name}}</th>
+                  <td scope="row">{{ client.middle_name }}</td>
+                  <td scope="col">{{ client.last_name }}</td>
+                  <td>
+                    <a href="" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i>View</a>
+                    <a href="" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i>Edit</a>
+                    <a href="{% url 'client_delete' client.pk %}" class="delete" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE517;</i>Delete</a>
+             </td>
+                  <style>
+                    .lin{
+                      color : black;
+
+                    }
+                  </style>
+                </tr>
+                {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+
+
+{% endblock content %}

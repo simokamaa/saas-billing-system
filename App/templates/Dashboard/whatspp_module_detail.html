@@ -1,0 +1,31 @@
+{% extends "Dashboard/base.html" %}
+
+
+{% block content %}
+  
+<div class="container">
+  <h1>Review specific employee payment record</h1>
+  <div class="row">
+    <table class="table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Employement ID: </th>
+            <th>username</th>
+            <th>Salary Type</th>
+            <th>pdf</th>
+        </tr>
+        </thead>
+         <tbody>
+            {% for employee in employees %}
+          <tr>
+            <th scope="row">{{ employee.Employement_id }}</th>
+            <td>{{ employee.username }}</td>
+            <td>{{ employee.salary_type }}</td>
+            <td><a href="{% url 'personalAccount'  %}"><button class="btn btn-primary">Transcation</button></a></td>
+          </tr>
+            {% endfor %}
+         </tbody>
+    </table>
+</div>
+
+{% endblock content %}

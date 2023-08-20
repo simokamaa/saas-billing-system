@@ -1,0 +1,111 @@
+{% extends "Dashboard/base.html" %}
+{% load static %}
+
+{% block content %}
+     <!-- Left side columns -->
+     <div class="col-lg-12">
+      <div class="row">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-lg-4">
+              <div class="card text-bg-success">
+                <div class="card-body">
+                  <h5 class="card-title"><b>Total Clients</b></h5>
+                  <p class="card-text"><em>Kshs</em> {{ 0 }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card text-bg-success pl-3">
+                <div class="card-body">
+                  <h5 class="card-title"><b>Total Payments Today</b></h5>
+                  <p class="card-text"><b><em>{{ 0 }}</em></b></p>
+                </div>
+              </div>
+            </div>
+            <!-- Add more cards for other layers -->
+
+            <div class="col-md-4 mt-2">
+              <div class="card text-bg-info">
+                <div class="card-body">
+                  <h5 class="card-title"><b>Total Orders</b></h5>
+                  <!-- Add a graph chart for income today -->
+                  <p class="card-text"><em>Kshs</em> {{ 0 }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 mt-4">
+              <div class="card ">
+                <div class="card-body">
+                  <h5 class="card-title"><b>Total   invoices</b></h5>
+                  <canvas id="expenseChart">{{ 0 }}</canvas>
+                </div>
+              </div>
+            </div>
+            <!-- Add more cards for other graphs -->
+
+            <div class="col-md-4 mt-4">
+              <div class="card text-bg-success">
+                <div class="card-body">
+                  <h5 class="card-title"><b>Total Campaigns</b></h5>
+                  <p class="card-text"><b><em>Kshs </em>{{ 0 }}</b></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mt-4">
+              <div class="card text-bg-success">
+                <div class="card-body">
+                  <h5 class="card-title"><b>Total contacts</b></h5>
+                  <p class="card-text"><b><em>Kshs </em> {{ 0 }}</b></p>
+                </div>
+              </div>
+            </div>
+
+
+         
+           <div class="col-md-4 mt-4">
+            <div class="card text-bg-success">
+              <div class="card-body">
+                <h5 class="card-title"><b>Total Products</b></h5>
+                <p class="card-text"><b><em> Kshs </em>{{ 0 }}</b></p>
+              </div>
+            </div>
+          </div>
+    
+            <!-- Add more cards for other layers -->
+
+            <div class="col-md-4 mt-4">
+              <div class="card text-bg-success">
+                <div class="card-body">
+                  <h5 class="card-title"><b>Total Packages</b></h5>
+                  <!-- Add a graph chart for total payment -->
+                  <p class="card-text">Kshs <em>{{ 0 }}</em></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 mt-4">
+              <div class="card">
+                <div class="card-body text-bg-success">
+                  <h5 class="card-title"><b>Total Messages Sent</b></h5>
+                  <!-- Add a table for total employees -->
+                  <p class="card-text"><em>{{ 0 }}</em></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 mt-4">
+              <div class="card">
+                <div class="card-body text-bg-success">
+                  <h5 class="card-title"><b>Total Invoices</b></h5>
+                  <!-- Add a table for total employees -->
+                  <p class="card-text"><em>{{ 0 }}</em></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+{% endblock content %}

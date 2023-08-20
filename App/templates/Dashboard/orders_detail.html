@@ -1,0 +1,40 @@
+{% extends "Dashboard/base.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="mb-3">
+  <label for="employment_id" class="form-label">Orders list</label>
+
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"><h2>EMP ID</h2></th>
+          <th scope="col">User Name</th>
+          <th scope="col">Salary Type</th>
+          <th scope="col">Basic Salary</th>
+          <th scope="col">pay </th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+
+          {% for employee in employees%}
+          <tr>
+          <th scope="row">{{ employee.Employement_id }}</th>
+          <td>{{ employee.username }}</td>
+          <td>{{ employee.salary_type }}</td>
+          <td>{{ employee.total_income }}</td>
+          <td>
+              <button class="btn btn-primary" type="submit">Pay</button>
+
+          </td>
+        </tr>
+            {% endfor  %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Left side columns -->
+
+
+{% endblock content %}

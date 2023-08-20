@@ -1,0 +1,31 @@
+{% extends "Dashboard/base.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="mb-3">
+  <label for="employment_id" class="form-label">Employee salary list</label>
+ 
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Employee Name</th>
+          <th scope="col">Gift Item</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        {% for award in awards %}
+        <tr>
+          <th scope="row">{{ award.employee_name }}</th>
+          <td>{{award.gift_item}}</td>
+          <td>{{ award.award_date }}</td>
+        </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Left side columns -->
+{% endblock content %}

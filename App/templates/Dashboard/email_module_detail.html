@@ -1,0 +1,11 @@
+{% extends "Dashboard/base.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div>
+  <h1>{{ department.name }}</h1>
+{% for employee in employees  %}
+<li>{{ employee.first_name }} {{ employee.middle_name }} {{ employee.last_name }}</li>
+{%  endfor  %}
+</div>
+{% endblock content %}

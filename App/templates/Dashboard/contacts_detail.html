@@ -1,0 +1,50 @@
+{% extends "Dashboard/base.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="col">
+  <h2> Contacts Details</h2>
+<div class="row">
+  <div class="col m-1">
+    <form method="POST" action="">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger" value="submit">Delete All</button>
+    </form>
+  </div>
+  <div class="col m-1">
+    <a href="{% url 'contact_create' %}"><button class="btn btn-primary">Add new</button></a>
+  </div>
+</div>
+ </div>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Product</th>
+          <th scope="col">Description</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        
+        <tr>
+          <th scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <a href="" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i>View</a>
+            <a href="" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i>Edit</a>
+            <a href="" class="delete" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE517;</i>Delete</a>
+     </td>
+        </tr>
+   
+
+      </tbody>
+    </table>
+  </div>
+
+<!-- Left side columns -->
+{% endblock content %}

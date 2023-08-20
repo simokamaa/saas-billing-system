@@ -1,0 +1,37 @@
+{% extends "Dashboard/base.html" %}
+
+{% block content %}
+<div class="mb-3">
+  <label for="employment_id" class="form-label">Employee advance salary list</label>
+ <div class="col">
+  <form method="POST" action="{% url 'advancesalary_delete_all' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger" value="submit">Delete All</button>
+  </form>
+ </div>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Employee Name</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Date</th>
+          <th scope="col">Reason</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        {% for advancesalary_list in advancesalary_lists %}
+        <tr>
+          <th scope="row">{{ advancesalary_list.employee_name }}</th>
+          <td>{{advancesalary_list.amount}}</td>
+          <td>{{advancesalary_list.month}}</td>
+          <td>{{ advancesalary_list.reason }}</td>
+        </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Left side columns -->
+{% endblock content %}

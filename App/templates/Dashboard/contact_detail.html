@@ -1,0 +1,63 @@
+{% extends "Dashboard/base.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="row">
+  <div class="col mb-2">
+    <label for="employment_id" class="form-label">Daily Record</label>
+
+    <div>
+
+      <div class="col">
+        <form method="post" action="{% url 'dailyworks_delete' %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger" value="submit">Delete all Records</button>
+        </form>
+      </div>
+ </div>
+      <table class="table ">
+        <thead>
+          <tr>
+            <th scope="col">Employee</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Job</th>
+            <th scope="col">Department</th>
+            <th scope="col">Commision Rate</th>
+            <th scope="col"> PY status</th>
+            <th scope="col">PY method</th>
+            <th scope="col">Date</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+         {% for dailywork in dailyworks %}
+             <tr>
+            <th scope="row">{{ dailywork.employee_ID  }}</th>
+            <td>{{ dailywork.total_amount }}</td>
+            <td>{{ dailywork.job_type }}</td>
+            <td>{{ dailywork.department }}</td>
+            <td>{{ dailywork.commision_rate }}</td>
+            <td>{{ dailywork.paid  }}</td>
+            <td>{{ dailywork.Payement_method }}</td>
+            <td>{{  dailywork.date }}</td>
+            <td class="row">
+                <form method="POST" class="col" action="{% url 'dailywork_delete' dailywork.pk %}">
+                    {% csrf_token %}
+                    <a href="{% url 'dailywork_delete' dailywork.pk %}" class="delete" title="Delete" ><i class="material-icons">&#xE517;</i>Delete</a>
+                </form>
+            <form method="POST" class="col" action="{% url 'dailywork_update' dailywork.pk %}">
+                {% csrf_token %}
+                <a href="{% url 'dailywork_update' dailywork.pk %}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i>Update</a>
+            </form>
+
+            </td>
+          </tr>
+         {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Left side columns -->
+
+{% endblock content %}

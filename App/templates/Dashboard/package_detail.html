@@ -1,0 +1,47 @@
+{% extends "Dashboard/base.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="row">
+  <div class="mb-3 row">
+    <label for="employment_id" class="form-label">Expenses List</label>
+    <div>
+
+      <div class="row">
+        <form method="POST">
+          {% csrf_token %}
+          <button type="submit"   value="Submit" class="btn btn-danger"><a href="{% url 'deleteAllExpenses' %}">Delete All</a></button>
+        </form>
+      </div>
+</div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Expenses Name</th>
+          <th scope="col">Date</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Details </th>
+          <th scope="col">Edit</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        {% for expense in expenses %}
+        <tr>
+          <th scope="row">{{ expense.expense_name }}</th>
+          <td>{{ expense.date }}</td>
+          <td>{{ expense.amount }}</td>
+          <td>{{ expense.text }}</td>
+          <td>
+            <a href="" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i>View</a>
+            <a href="" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i>Edit</a>
+            <a href="" class="delete" title="Delete" ><i class="material-icons">&#xE517;</i>Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Left side columns -->
+
+{% endblock content %}

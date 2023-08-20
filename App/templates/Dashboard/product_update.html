@@ -1,0 +1,17 @@
+{% extends "Dashboard/base.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="mb-3">
+  <label for="employment_id" class="form-label">Employee update</label>
+
+  <form method="POST" action="{% url 'employee_update'  %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" value="submit">Submit</button>
+</form>
+  
+</div>
+<!-- Left side columns -->
+
+{% endblock content %}
