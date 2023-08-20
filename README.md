@@ -1,5 +1,5 @@
 # saas-billing-system
-This system is meant to be used by software as a service company who charge their products recurently.I have made it ready for 
+This system is meant to be used by software as a service company who charge their products recurrently.I have made it ready for 
 local payment gateways intergration like M-Pesa and KCB bank.You can aslo intergrate with international payment gateways of your choice.
 
 To contribute Fork the repo and create a new branch < git checkout -b your-feature-branch >
