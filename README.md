@@ -1,5 +1,5 @@
 # saas-billing-system
-To contribute Fork the repo and create a new branch
+To contribute Fork the repo and create a new branch < git checkout -b your-feature-branch >
 
 Clone the repo and install project dependencies < pip install -r requirements.txt >
 
